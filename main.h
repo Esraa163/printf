@@ -15,8 +15,8 @@
 
 #define PARAMS_INT {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
 
-#define CONVERT_LOWERCASE	1
-#define CONVERT_UNSIGNED	2
+#define CONVERT_LOWERCASE       1
+#define CONVERT_UNSIGNED        2
 
 /**
 * struct parameters - parameters struct
@@ -40,19 +40,19 @@
 
 typedef struct parameters
 {
-	unsignd int unsign		: 1;
+        unsignd int unsign              : 1;
 
-	unsignd int plus_flag		: 1;
-	unsignd int space_flag		: 1;
-	unsignd int hashtag_flag	: 1;
-	unsignd int zero_flag		: 1;
-	unsignd int minus_flag		: 1;
+        unsignd int plus_flag           : 1;
+        unsignd int space_flag          : 1;
+        unsignd int hashtag_flag        : 1;
+        unsignd int zero_flag           : 1;
+        unsignd int minus_flag          : 1;
 
-	unsignd int width;
-	unsignd int precision;
+        unsignd int width;
+        unsignd int precision;
 
-	unsignd int h_modifier		: 1;
-	unsignd int l_modifier		: 1;
+        unsignd int h_modifier          : 1;
+        unsignd int l_modifier          : 1;
 } params_t;
 
 
@@ -65,8 +65,8 @@ typedef struct parameters
 
 typedef struct specifier
 {
-	char *specifier;
-	int (*f)(va_list, params_t *);
+        char *specifier;
+        int (*f)(va_list, params_t *);
 } specifier_t;
 
 /* _put.c module */
@@ -88,9 +88,9 @@ int print_address(va_list ap, params_t *params);
 /* specifier.c module */
 int (*get_specifier(char *s))(va_list ap, params_t *params);
 int get_print_func(char *s, va_list ap, params_t *params);
-int get_flag(char *s, patams_t *params);
+int get_flag(char *s, params_t *params);
 int get_modifier(char *s, params_t *params);
-char *get_width(char *s, paramss_t *params, va_list ap);
+char *get_width(char *s, params_t *params, va_list ap);
 
 /* convert_number.c module */
 int print_hex(va_list ap, params_t *params);
@@ -109,7 +109,7 @@ int _isdigit(int c);
 int _strlen(char *s);
 int print_number(char *str, params_t *params);
 int print_number_right_shift(char *str, params_t *params);
-int print_number_left_shift(*char *str, params_t *params);
+int print_number_left_shift(char *str, params_t *params);
 
 /* params.c module */
 void init_params(params_t *params, va_list ap);
